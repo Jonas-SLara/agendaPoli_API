@@ -1,3 +1,21 @@
-.vscode
+#IDEs
+.vscode/
 .idea/
-.env/
+
+.env
+
+*.log
+
+#targer e build
+target/
+build/
+out/
+
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+
+
