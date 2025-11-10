@@ -1,10 +1,10 @@
-package com.ufsm.politecnico;
+package com.politecnico.poliagenda;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PolitecnicoApplicationTests {
+class PoliagendaApplicationTests {
 
 	@Test
 	void contextLoads() {

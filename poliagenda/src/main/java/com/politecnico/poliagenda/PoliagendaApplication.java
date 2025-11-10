@@ -1,13 +1,13 @@
-package com.ufsm.politecnico;
+package com.politecnico.poliagenda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PolitecnicoApplication {
+public class PoliagendaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PolitecnicoApplication.class, args);
+		SpringApplication.run(PoliagendaApplication.class, args);
 	}
 
 }
