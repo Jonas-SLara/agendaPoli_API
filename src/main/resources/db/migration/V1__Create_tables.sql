@@ -1,40 +1,24 @@
-CREATE TABLE IF NOT EXISTS admin(
+CREATE TABLE IF NOT EXISTS usuario(
     uuid UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     email VARCHAR(100) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS professor(
-    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
-    nome VARCHAR(100) NOT NULL,
-    matricula VARCHAR(9) UNIQUE NOT NULL
+    matricula VARCHAR(20)
+    permissao VARCHAR(30) NOT NULL
 );
-
---tabela evento possui uma restrição check para validar o tipo de valor aceitavel para evento
 
 CREATE TABLE IF NOT EXISTS evento(
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(100) NOT NULL,
-    id_professor BIGINT NOT NULL REFERENCES 
-		professor(id) ON DELETE CASCADE,
-    tipo VARCHAR(30) NOT NULL CHECK (tipo IN(
-        'DISCIPLINA', 'PALESTRA', 'SEMINÁRIO', 'REUNIÃO', 'PROJETO'
-    ))
+    usuario_id UUID NOT NULL REFERENCES usuario(id) ON DELETE CASCADE,
+    tipo VARCHAR(30) NOT NULL
 );
 
---tabela sala possui uma restrição check para validar o tipo de valor aceitável para sala
 CREATE TABLE IF NOT EXISTS sala(
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(5) NOT NULL,
-    predio VARCHAR(8) NOT NULL CHECK (predio IN(
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'OUTRO'
-    )),
+    predio VARCHAR(8) NOT NULL,
     capacidade int NOT NULL,
-    tipo VARCHAR(30) NOT NULL CHECK (tipo IN(
-        'LABORATÓRIO', 'AULA', 'AUDITÓRIO', 'OFICINA', 'MULTIUSO'
-    ))
+    tipo VARCHAR(30) NOT NULL
 );
 
 --tabela de agendamento possui uma restrição check para validar a hora
