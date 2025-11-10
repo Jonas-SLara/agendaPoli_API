@@ -2,14 +2,14 @@ CREATE TABLE IF NOT EXISTS usuario(
     uuid UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
-    matricula VARCHAR(20)
+    matricula VARCHAR(20),
     permissao VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS evento(
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(100) NOT NULL,
-    usuario_id UUID NOT NULL REFERENCES usuario(id) ON DELETE CASCADE,
+    usuario_uuid UUID NOT NULL REFERENCES usuario(uuid) ON DELETE CASCADE,
     tipo VARCHAR(30) NOT NULL
 );
 
