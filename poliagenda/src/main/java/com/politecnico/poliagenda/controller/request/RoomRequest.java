@@ -18,11 +18,9 @@ public class RoomRequest {
     private String name;
 
     @Schema(example = "LABORATÓRIO")
-    @NotBlank
     private RoomType roomType;
 
     @Schema(example = "G")
-    @NotBlank
     private Center center;
 
     @Schema(example = "40")
