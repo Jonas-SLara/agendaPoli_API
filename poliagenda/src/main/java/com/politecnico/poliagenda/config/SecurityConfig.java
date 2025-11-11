@@ -31,7 +31,7 @@ public class SecurityConfig {
 
     private static final String[] PUBLIC_WHITELIST = {
             "/health/**",
-            "/sessions/**"
+            "/session/**"
     };
 
     private static final String[] SWAGGER_WHITELIST = {
