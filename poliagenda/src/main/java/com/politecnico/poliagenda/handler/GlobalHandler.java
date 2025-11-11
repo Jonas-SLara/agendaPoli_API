@@ -31,6 +31,7 @@ public class GlobalHandler {
         response.put("status", HttpStatus.BAD_REQUEST.value());
         response.put("error", "Requisição inválida");
         response.put("message", ex.getMessage());
+        response.put("trace", ex.getStackTrace());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
